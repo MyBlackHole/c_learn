@@ -43,5 +43,7 @@ int demo_shm_open_main()
 		exit(EXIT_FAILURE);
 	}
 	close(my_fd);
+
+	shm_unlink(name);
 	return EXIT_SUCCESS;
 }

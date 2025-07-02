@@ -84,3 +84,23 @@ int demo_getopt_long_main(int argc, char **argv)
 
 	exit(EXIT_SUCCESS);
 }
+
+// 测试:
+// ❯ xmake run getopt_learn getopt_long --file /run
+// /run
+// ❯ xmake run getopt_learn getopt_long -ab
+// option a
+// option b
+// ❯ xmake run getopt_learn getopt_long -ad
+// option a
+// getopt_long: option requires an argument -- 'd'
+// ❯ xmake run getopt_learn getopt_long -bc
+// option b
+// getopt_long: option requires an argument -- 'c'
+// ❯ xmake run getopt_learn getopt_long -01
+// option 0
+// option 1
+// ❯ xmake run getopt_learn getopt_long -012
+// option 0
+// option 1
+// option 2
