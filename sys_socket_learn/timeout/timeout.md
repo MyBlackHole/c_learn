@@ -1,0 +1,7 @@
+系统调用	有效选项	系统调用超时后的行为
+send	SO_SNDTIMEO	返回-1，设置errno为EAGAIN或EWOULDBLOCK
+sendmsg	SO_SNDTIMEO	返回-1，设置errno为EAGAIN或EWOULDBLOCK
+recv	SO_RCVTIMEO	返回-1，设置errno为EAGAIN或EWOULDBLOCK
+recvmsg	SO_RCVTIMEO	返回-1，设置errno为EAGAIN或EWOULDBLOCK
+accept	SO_RCVTIMEO	返回-1，设置errno为EAGAIN或EWOULDBLOCK
+connect	SO_SNDTIMEO	返回-1，设置errno为EINPROGRESS
