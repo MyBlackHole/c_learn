@@ -1,7 +1,7 @@
 PWD = $(shell pwd)
 KVERS =$(shell uname -r)
 KERNDIR =/lib/modules/${KVERS}/build/
-obj-m += fbd_device.o
+obj-m += cache.o
  
 build: kernel_modules
  

@@ -1,7 +1,5 @@
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
 
-#define CONFIG_LIVEPATCH 1
-
 #include <linux/seq_file.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -31,17 +29,20 @@ static int livepatch_cmdline_proc_show(struct seq_file *m, void *v)
 	return 0;
 }
 
-static struct klp_func funcs[] = { {
-					   .old_name = "cmdline_proc_show",
-					   .new_func =
-						   livepatch_cmdline_proc_show,
-				   },
-				   { 0 } };
+static struct klp_func funcs[] = {
+	{
+		.old_name = "cmdline_proc_show",
+		.new_func = livepatch_cmdline_proc_show,
+	},
+	{ 0 },
+};
 
-static struct klp_object objs[] = { {
-					    .funcs = funcs,
-				    },
-				    {} };
+static struct klp_object objs[] = {
+	{
+		.funcs = funcs,
+	},
+	{},
+};
 
 static struct klp_patch patch = {
 	.mod = THIS_MODULE,
