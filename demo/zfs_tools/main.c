@@ -48,8 +48,10 @@ int main(int argc, char **argv)
 			printf("[DRR_BEGIN]\n");
 			const struct drr_begin *begin =
 				&record_ptr->drr_u.drr_begin;
-			printf("toguid: %lu\n", begin->drr_toguid);
-			printf("toname: %s\n", begin->drr_toname);
+			printf("drr_type: %u\n", begin->drr_type);
+			printf("drr_fromguid: %lu\n", begin->drr_fromguid);
+			printf("drr_toguid: %lu\n", begin->drr_toguid);
+			printf("drr_toname: %s\n", begin->drr_toname);
 			break;
 		}
 		case DRR_OBJECT: {
@@ -59,7 +61,10 @@ int main(int argc, char **argv)
 			payload_size = DRR_OBJECT_PAYLOAD_SIZE(obj);
 			offset += payload_size;
 			printf("drr_object: %lu\n", obj->drr_object);
-			printf("type: %u\n", obj->drr_type);
+			printf("drr_type: %u\n", obj->drr_type);
+			printf("drr_blksz: %u\n", obj->drr_blksz);
+			printf("drr_maxblkid: %lu\n", obj->drr_maxblkid);
+			printf("drr_toguid: %lu\n", obj->drr_toguid);
 			printf("payload_size: %lu\n", payload_size);
 			break;
 		}
@@ -77,8 +82,10 @@ int main(int argc, char **argv)
 			payload_size = DRR_WRITE_PAYLOAD_SIZE(drrw);
 			offset += payload_size;
 
-			printf("object: %lu\n", drrw->drr_object);
-			printf("offset: %lu\n", drrw->drr_offset);
+			printf("drr_type: %u\n", drrw->drr_type);
+			printf("drr_object: %lu\n", drrw->drr_object);
+			printf("drr_offset: %lu\n", drrw->drr_offset);
+			printf("drr_toguid: %lu\n", drrw->drr_toguid);
 			printf("payload_size: %lu\n", payload_size);
 			printf("compressiontype: %u\n",
 			       drrw->drr_compressiontype);
@@ -88,16 +95,20 @@ int main(int argc, char **argv)
 			printf("[DRR_WRITE_BYREF]\n");
 			const struct drr_write_byref *drrwb =
 				&record_ptr->drr_u.drr_write_byref;
-			printf("offset: %lu\n", drrwb->drr_offset);
-			printf("object: %lu\n", drrwb->drr_object);
+			printf("drr_offset: %lu\n", drrwb->drr_offset);
+			printf("drr_object: %lu\n", drrwb->drr_object);
+			printf("drr_length: %lu\n", drrwb->drr_length);
+			printf("drr_toguid: %lu\n", drrwb->drr_toguid);
 			break;
 		}
 		case DRR_WRITE_EMBEDDED: {
 			printf("[DRR_WRITE_EMBEDDED]\n");
 			const struct drr_write_embedded *drrwe =
 				&record_ptr->drr_u.drr_write_embedded;
-			printf("offset: %lu\n", drrwe->drr_offset);
-			printf("object: %lu\n", drrwe->drr_object);
+			printf("drr_offset: %lu\n", drrwe->drr_offset);
+			printf("drr_length: %lu\n", drrwe->drr_length);
+			printf("drr_object: %lu\n", drrwe->drr_object);
+			printf("drr_toguid: %lu\n", drrwe->drr_toguid);
 
 			break;
 		}
@@ -105,13 +116,18 @@ int main(int argc, char **argv)
 			printf("[DRR_FREE]\n");
 			const struct drr_free *drrf =
 				&record_ptr->drr_u.drr_free;
-			printf("object: %lu\n", drrf->drr_object);
-			printf("offset: %lu\n", drrf->drr_offset);
+			printf("drr_offset: %lu\n", drrf->drr_offset);
+			printf("drr_length: %lu\n", drrf->drr_length);
+			printf("drr_object: %lu\n", drrf->drr_object);
+			printf("drr_toguid: %lu\n", drrf->drr_toguid);
 
 			break;
 		}
 		case DRR_END: {
 			printf("[DRR_END]\n");
+			const struct drr_end *end =
+				&record_ptr->drr_u.drr_end;
+			printf("drr_toguid: %lu\n", end->drr_toguid);
 			ret = 0;
 			goto return__;
 		}
@@ -121,8 +137,10 @@ int main(int argc, char **argv)
 				&record_ptr->drr_u.drr_spill;
 			payload_size = DRR_SPILL_PAYLOAD_SIZE(drrs);
 			offset += payload_size;
-			printf("object: %lu\n", drrs->drr_object);
-			printf("length: %lu\n", drrs->drr_length);
+			printf("drr_type: %u\n", drrs->drr_type);
+			printf("drr_object: %lu\n", drrs->drr_object);
+			printf("drr_length: %lu\n", drrs->drr_length);
+			printf("drr_toguid: %lu\n", drrs->drr_toguid);
 			printf("payload_size: %lu\n", payload_size);
 			break;
 		}
@@ -130,7 +148,7 @@ int main(int argc, char **argv)
 			printf("[DRR_OBJECT_RANGE]\n");
 			const struct drr_object_range *drror =
 				&record_ptr->drr_u.drr_object_range;
-			printf("toguid: %lu\n", drror->drr_toguid);
+			printf("drr_toguid: %lu\n", drror->drr_toguid);
 			break;
 		}
 		default: {
