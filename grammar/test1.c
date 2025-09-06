@@ -24,20 +24,21 @@
  * 十进制、八进制、十六进制
  *
  */
-struct test1 {
+typedef struct test1 {
 	/* data */
 	int a : 2;
 	int b;
-} tt_t;
+} test_t;
 
 int func9()
 {
 	struct test1 ttt;
+	test_t tttt;
 	ttt.b = 9;
-	printf("%p\n", &tt_t);
-	printf("%p\n", &tt_t.b);
+	printf("%p\n", &tttt);
+	printf("%p\n", &tttt.b);
 	unsigned long int count =
-		(unsigned long int)&tt_t.b - (unsigned long int)&tt_t;
+		(unsigned long int)&tttt.b - (unsigned long int)&tttt;
 	printf("%lu\n", count);
 	printf("%p\n", &ttt);
 	printf("%p\n", &ttt.b);
@@ -54,9 +55,10 @@ int func9()
 
 int func8()
 {
-	printf("%p\n", &tt_t);
-	printf("%p\n", &tt_t);
-	printf("%lu\n", sizeof(tt_t));
+	test_t tttt;
+	printf("%p\n", &tttt);
+	printf("%p\n", &tttt);
+	printf("%lu\n", sizeof(test_t));
 	return 0;
 }
 
@@ -204,6 +206,8 @@ void func20()
 int demo_test1_main()
 {
 	func20();
+	(void)func9;
+	(void)func8;
 	// const int a = 0;
 	// char c = 'A';
 	// printf("111%d\n", a++);

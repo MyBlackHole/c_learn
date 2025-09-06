@@ -4,7 +4,8 @@ add_requires("protobuf-c", { system = false, configs = { static = true }, debug 
 
 package("protobuf-c-rpc")
 
-    set_sourcedir("/run/media/black/Data/Documents/github/c/protobuf-c-rpc")
+    -- set_sourcedir("/run/media/black/Data/Documents/github/c/protobuf-c-rpc")
+    add_urls("git@github.com:protobuf-c/protobuf-c-rpc.git")
 
     -- 依赖protobuf-c库
     add_deps("protobuf-c")
