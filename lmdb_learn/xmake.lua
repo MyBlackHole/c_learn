@@ -1,8 +1,8 @@
 local dir_path = path.relative(os.curdir(), os.projectdir())
 
-add_requires("rocksdb", {system = false, configs = {static = true}, debug = is_mode("debug")})
+add_requires("lmdb", {system = false, configs = {static = true}, debug = is_mode("debug")})
 
 target(dir_path)
     set_kind("binary")
     add_files("*.c")
-    add_packages("rocksdb")
+    add_packages("lmdb")
