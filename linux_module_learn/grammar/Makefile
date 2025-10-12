@@ -1,4 +1,6 @@
-obj-m:= AAAA1111.o
+obj-m += IS_ERR_OR_NULL.o
+obj-m += EXPORT_SYMBOL.o
+obj-m += EXPORT_SYMBOL_test.o
 
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
