@@ -3,6 +3,7 @@ obj-m += EXPORT_SYMBOL.o
 obj-m += EXPORT_SYMBOL_test.o
 obj-m += struct_size_test.o
 obj-m += while_test.o
+obj-m += loff_t_size_test.o
 
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
