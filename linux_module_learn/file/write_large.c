@@ -24,8 +24,8 @@ static int __init write_init(void)
 	pr_info("write_init!\n");
 
 	// 缺少目录时会: [ 7175.945832] error: line:29, error code: -2
-	write_fp = filp_open("/var/write.img", O_RDWR | O_CREAT, 0666);
-	// write_fp = filp_open("/tmp/write.img", O_RDWR | O_CREAT, 0666);
+	write_fp = filp_open("/var/write.img", O_RDWR | O_CREAT | O_LARGEFILE,
+			     0666);
 
 	if (IS_ERR(write_fp)) {
 		pr_err("error code: %ld\n", PTR_ERR(write_fp));
@@ -75,8 +75,7 @@ module_init(write_init);
 module_exit(write_exit);
 MODULE_LICENSE("GPL");
 
-
 // ❯ sudo insmod write.ko
-// ❯ ls -alh /tmp/write.img
+// ❯ ls -alh /var/write.img
 // Permissions Size User Date Modified Name
-// .rw-r--r--  2.1G root 12 10月 19:01  /tmp/write.img
+// .rw-r--r--  3.2G root 12 10月 20:08  /var/write.img

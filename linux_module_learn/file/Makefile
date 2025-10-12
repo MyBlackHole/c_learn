@@ -1,5 +1,7 @@
 obj-m += mkdir.o
 obj-m += write.o
+obj-m += f_pos_size.o
+obj-m += write_large.o
  
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
