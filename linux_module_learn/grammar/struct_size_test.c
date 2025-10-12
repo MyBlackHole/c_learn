@@ -56,7 +56,7 @@ struct monitor_config {
 
 static struct monitor_config monitor_config_obj[MONITOR_ARRAY_SIZE] = { 0 };
 
-static int __init hello_mm_init(void)
+static int __init struct_size_test_init(void)
 {
 	int i = 0;
 	pr_info("hello world!\n");
@@ -69,10 +69,10 @@ static int __init hello_mm_init(void)
 		sizeof(monitor_config_obj), monitor_config_obj);
 	return 0;
 }
-static void __exit hello_mm_exit(void)
+static void __exit struct_size_test_exit(void)
 {
 	printk("good bye!\n");
 }
-module_init(hello_mm_init);
-module_exit(hello_mm_exit);
+module_init(struct_size_test_init);
+module_exit(struct_size_test_exit);
 MODULE_LICENSE("GPL");
