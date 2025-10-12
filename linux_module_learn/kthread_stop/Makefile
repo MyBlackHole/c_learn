@@ -1,4 +1,5 @@
 obj-m += kthread_stop.o
+obj-m += kthread_stop_err.o
  
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
