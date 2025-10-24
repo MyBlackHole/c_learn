@@ -1,4 +1,7 @@
-obj-m:= hook_demo.o
+obj-m += hook_demo.o
+obj-m += api_test.o
+obj-m += api_test_err.o
+obj-m += api_test_user_addr.o
 CURRENT_PATH:=$(shell pwd)
 LINUX_KERNEL:=$(shell uname -r)
 
