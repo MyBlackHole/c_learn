@@ -16,6 +16,8 @@ static demo_t demos[] = {
 	DEMO_MAIN_ITEM(sync_fetch_and_add),
 	DEMO_MAIN_ITEM(destructor1),
 	DEMO_MAIN_ITEM(__GNUC__),
+	DEMO_MAIN_ITEM(__atomic_compare_exchange_n),
+	DEMO_MAIN_ITEM(atomic),
 };
 
 int main(int argc, char **argv)

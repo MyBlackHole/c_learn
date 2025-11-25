@@ -48,3 +48,17 @@ int demo_builtin_clz_main()
 
 	return 0;
 }
+
+// ❯ xmake run gcc_learn builtin_clz
+// 0x0 ret=31
+// 0x1 ret=31
+// 0x2 ret=30
+// 0x4 ret=29
+// 0x8 ret=28
+// 0x10 ret=27
+// 0xfffffff ret=4
+// 0x1fffffff ret=3
+// 0x2fffffff ret=2
+// 0x4fffffff ret=1
+// 0x8fffffff ret=0
+// 0xffffffff ret=0
