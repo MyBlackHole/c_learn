@@ -47,6 +47,6 @@ void __exit mempool_create_exit(void)
 	printk("exit! \n");
 }
 
-MODULE_LICENSE("GPL");
 module_init(mempool_create_init);
 module_exit(mempool_create_exit);
+MODULE_LICENSE("GPL");
