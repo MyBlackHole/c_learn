@@ -10,5 +10,7 @@ DEMO_MAIN_DECL(shm_open);
 DEMO_MAIN_DECL(mmap_phy);
 DEMO_MAIN_DECL(MAP_ANONYMOUS);
 DEMO_MAIN_DECL(mmap_array);
+DEMO_MAIN_DECL(mmap_max);
+DEMO_MAIN_DECL(mmap_max_file_page);
 
 #endif
