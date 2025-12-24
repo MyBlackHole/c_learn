@@ -18,12 +18,15 @@ int __init file_init(void)
 	int retry = 100;
 	int err = 0;
 	unsigned char buf1[12] = "hello world.";
-	char *file = "/tmp/file_test";
+	char *file = "/root/file_test";
+	char path[400] = { 0 };
 
 	loff_t pos;
 
+	snprintf(path, sizeof(path), "%s%d", file, retry--);
+
 	pr_info("------ file close|open test ------\n");
-	fp = filp_open(file, O_RDWR | O_CREAT, 0644);
+	fp = filp_open(path, O_RDWR | O_CREAT, 0644);
 	if (IS_ERR(fp)) {
 		err = PTR_ERR(fp);
 		pr_err("open file error %ld\n", PTR_ERR(fp));
@@ -47,15 +50,18 @@ int __init file_init(void)
 		err = filp_close(fp, NULL);
 		if (err != 0) {
 			pr_err("close file error %d\n", err);
+			fp = NULL;
 			goto return__;
 		} else {
+			fp = NULL;
 			pr_info("close file success\n");
 		}
 		pr_info("fp->f_op: %p, (unsigned long)fp->f_op: 0x%lx, retry: %d\n",
 			fp->f_op, (unsigned long)fp->f_op, retry);
 		ssleep(2);
 
-		fp = filp_open(file, O_RDWR | O_CREAT, 0644);
+		snprintf(path, sizeof(path), "%s%d", file, retry);
+		fp = filp_open(path, O_RDWR | O_CREAT, 0644);
 		if (IS_ERR(fp)) {
 			err = PTR_ERR(fp);
 			pr_err("open file error %ld\n", PTR_ERR(fp));
@@ -83,7 +89,6 @@ module_init(file_init);
 module_exit(file_exit);
 
 MODULE_LICENSE("GPL");
-
 
 // 测试 open close file 是否受 sig 影响, 结果是没有影响
 // # insmod open_file_4.ko
@@ -135,4 +140,3 @@ MODULE_LICENSE("GPL");
 // Module                  Size  Used by    Tainted: G
 // open_file_4            16384  0
 // fsbackup             1810432  0
-
