@@ -18,6 +18,7 @@ static demo_t demos[] = {
 	DEMO_MAIN_ITEM(__GNUC__),
 	DEMO_MAIN_ITEM(__atomic_compare_exchange_n),
 	DEMO_MAIN_ITEM(atomic),
+	DEMO_MAIN_ITEM(__thread),
 };
 
 int main(int argc, char **argv)

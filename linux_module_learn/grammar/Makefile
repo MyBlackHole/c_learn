@@ -1,3 +1,4 @@
+obj-m += scoped_guard_test.o
 obj-m += IS_ERR_OR_NULL.o
 obj-m += EXPORT_SYMBOL.o
 obj-m += EXPORT_SYMBOL_test.o

@@ -5,5 +5,6 @@
 DEMO_MAIN_DECL(argp_parse);
 DEMO_MAIN_DECL(argp_parse_1);
 DEMO_MAIN_DECL(argp_parse_2);
+DEMO_MAIN_DECL(argp_parse_3);
 
 #endif

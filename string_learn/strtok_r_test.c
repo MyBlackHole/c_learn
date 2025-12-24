@@ -25,3 +25,18 @@ int demo_strtok_r_test_main(int argc, char **argv)
 // Output:
 // lobalView
 // Found at position 7!
+
+
+// ❯ xmake run string_learn strtok_r_test "a;;b;c"
+// [a]
+// [b]
+// [c]
+
+
+
+// ❯ xmake run string_learn strtok_r_test ";a;;b;c;"
+// [ 56%]: cache compiling.debug string_learn/strtok_r_test.c
+// [ 91%]: linking.debug string_learn
+// [a]
+// [b]
+// [c]

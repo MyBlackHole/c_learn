@@ -3,5 +3,6 @@
 
 #include "../lib/demo.h"
 DEMO_MAIN_DECL(getopt_long);
+DEMO_MAIN_DECL(getopt_long_test);
 
 #endif

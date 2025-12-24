@@ -11,7 +11,7 @@ static int ftype(const char *fname)
 	}
 
 	if (S_ISREG(statres.st_mode)) {
-		return '-';
+		return 'f';
 	} else if (S_ISDIR(statres.st_mode)) {
 		return 'd';
 	} else if (S_ISSOCK(statres.st_mode)) {

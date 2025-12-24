@@ -6,6 +6,7 @@
 
 static demo_t demos[] = {
 	DEMO_MAIN_ITEM(getopt_long),
+	DEMO_MAIN_ITEM(getopt_long_test),
 };
 int main(int argc, char **argv)
 {

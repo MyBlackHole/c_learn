@@ -74,7 +74,7 @@ static int handler(void *user, const char *section, const char *name,
 	return 1;
 }
 
-bool is_file(char *fname)
+bool is_file(const char *fname)
 {
 	struct stat statres;
 	if (stat(fname, &statres) < 0) {

@@ -8,5 +8,8 @@ DEMO_MAIN_DECL(stat2);
 DEMO_MAIN_DECL(stat3);
 DEMO_MAIN_DECL(umask_test);
 DEMO_MAIN_DECL(mkfifo);
+DEMO_MAIN_DECL(mkdirat);
+DEMO_MAIN_DECL(lstat);
+DEMO_MAIN_DECL(stat4);
 
 #endif

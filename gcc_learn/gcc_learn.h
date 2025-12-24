@@ -15,5 +15,6 @@ DEMO_MAIN_DECL(destructor1);
 DEMO_MAIN_DECL(__GNUC__);
 DEMO_MAIN_DECL(__atomic_compare_exchange_n);
 DEMO_MAIN_DECL(atomic);
+DEMO_MAIN_DECL(__thread);
 
 #endif

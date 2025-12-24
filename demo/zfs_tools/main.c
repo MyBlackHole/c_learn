@@ -91,27 +91,6 @@ int main(int argc, char **argv)
 			       drrw->drr_compressiontype);
 			break;
 		}
-		case DRR_WRITE_BYREF: {
-			printf("[DRR_WRITE_BYREF]\n");
-			const struct drr_write_byref *drrwb =
-				&record_ptr->drr_u.drr_write_byref;
-			printf("drr_offset: %lu\n", drrwb->drr_offset);
-			printf("drr_object: %lu\n", drrwb->drr_object);
-			printf("drr_length: %lu\n", drrwb->drr_length);
-			printf("drr_toguid: %lu\n", drrwb->drr_toguid);
-			break;
-		}
-		case DRR_WRITE_EMBEDDED: {
-			printf("[DRR_WRITE_EMBEDDED]\n");
-			const struct drr_write_embedded *drrwe =
-				&record_ptr->drr_u.drr_write_embedded;
-			printf("drr_offset: %lu\n", drrwe->drr_offset);
-			printf("drr_length: %lu\n", drrwe->drr_length);
-			printf("drr_object: %lu\n", drrwe->drr_object);
-			printf("drr_toguid: %lu\n", drrwe->drr_toguid);
-
-			break;
-		}
 		case DRR_FREE: {
 			printf("[DRR_FREE]\n");
 			const struct drr_free *drrf =
@@ -128,8 +107,19 @@ int main(int argc, char **argv)
 			const struct drr_end *end =
 				&record_ptr->drr_u.drr_end;
 			printf("drr_toguid: %lu\n", end->drr_toguid);
-			ret = 0;
-			goto return__;
+			// ret = 0;
+			// goto return__;
+			break;
+		}
+		case DRR_WRITE_BYREF: {
+			printf("[DRR_WRITE_BYREF]\n");
+			const struct drr_write_byref *drrwb =
+				&record_ptr->drr_u.drr_write_byref;
+			printf("drr_offset: %lu\n", drrwb->drr_offset);
+			printf("drr_object: %lu\n", drrwb->drr_object);
+			printf("drr_length: %lu\n", drrwb->drr_length);
+			printf("drr_toguid: %lu\n", drrwb->drr_toguid);
+			break;
 		}
 		case DRR_SPILL: {
 			printf("[DRR_SPILL]\n");
@@ -144,11 +134,32 @@ int main(int argc, char **argv)
 			printf("payload_size: %lu\n", payload_size);
 			break;
 		}
+		case DRR_WRITE_EMBEDDED: {
+			printf("[DRR_WRITE_EMBEDDED]\n");
+			const struct drr_write_embedded *drrwe =
+				&record_ptr->drr_u.drr_write_embedded;
+			printf("drr_offset: %lu\n", drrwe->drr_offset);
+			printf("drr_length: %lu\n", drrwe->drr_length);
+			printf("drr_object: %lu\n", drrwe->drr_object);
+			printf("drr_toguid: %lu\n", drrwe->drr_toguid);
+
+			break;
+		}
 		case DRR_OBJECT_RANGE: {
 			printf("[DRR_OBJECT_RANGE]\n");
 			const struct drr_object_range *drror =
 				&record_ptr->drr_u.drr_object_range;
 			printf("drr_toguid: %lu\n", drror->drr_toguid);
+			break;
+		}
+		case DRR_REDACT: {
+			printf("[DRR_REDACT]\n");
+			const struct drr_redact *drrr =
+				&record_ptr->drr_u.drr_redact;
+			printf("drr_toguid: %lu\n", drrr->drr_toguid);
+			printf("drr_length: %lu\n", drrr->drr_length);
+			printf("drr_offset: %lu\n", drrr->drr_offset);
+			printf("drr_object: %lu\n", drrr->drr_object);
 			break;
 		}
 		default: {

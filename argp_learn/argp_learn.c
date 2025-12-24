@@ -8,6 +8,7 @@ static demo_t demos[] = {
 	DEMO_MAIN_ITEM(argp_parse),
 	DEMO_MAIN_ITEM(argp_parse_1),
 	DEMO_MAIN_ITEM(argp_parse_2),
+	DEMO_MAIN_ITEM(argp_parse_3),
 };
 int main(int argc, char **argv)
 {

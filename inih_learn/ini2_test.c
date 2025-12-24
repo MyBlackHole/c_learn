@@ -19,7 +19,7 @@ const char *DEFAULT_PATH2 =
 	"/run/media/black/Data/Documents/C/inih_learn/xbsa_gaussdb_backup.conf";
 
 struct arguments {
-	char *config_file;
+	const char *config_file;
 };
 
 typedef struct {
@@ -46,23 +46,28 @@ static int handler2(void *user, const char *section, const char *name,
 	return 1;
 }
 
-bool is_file(char *fname);
+bool is_file(const char *fname);
 
 int demo_ini2_main(int argc, char *argv[])
 {
-	struct arguments arguments;
+	struct arguments arguments = {};
 
-	arguments.config_file = strdup(DEFAULT_PATH2);
-
-	if (!is_file(arguments.config_file)) {
-		fprintf(stderr, "%s error\n", arguments.config_file);
-		exit(EXIT_FAILURE);
+	if (argc > 1) {
+		arguments.config_file = argv[1];
+	} else {
+		arguments.config_file = DEFAULT_PATH2;
 	}
 
-	configuration2 config;
+	// if (!is_file(arguments.config_file)) {
+	// 	fprintf(stderr, "%s error\n", arguments.config_file);
+	// 	exit(EXIT_FAILURE);
+	// }
+
+	configuration2 config = {};
 
 	if (ini_parse(arguments.config_file, handler2, &config) < 0) {
 		printf("Can't load 'xbsa_gaussdb_backup.conf'\n");
+		perror("ini_parse");
 		return EXIT_FAILURE;
 	}
 	printf("Config loaded from 'xbsa_gaussdb_backup.conf': version=%d, "

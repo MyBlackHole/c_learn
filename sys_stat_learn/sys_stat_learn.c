@@ -7,6 +7,8 @@ static demo_t demos[] = {
 	DEMO_MAIN_ITEM(stat1),	    DEMO_MAIN_ITEM(stat2),
 	DEMO_MAIN_ITEM(stat3),	    DEMO_MAIN_ITEM(stat),
 	DEMO_MAIN_ITEM(umask_test), DEMO_MAIN_ITEM(mkfifo),
+	DEMO_MAIN_ITEM(mkdirat),    DEMO_MAIN_ITEM(lstat),
+	DEMO_MAIN_ITEM(stat4),
 };
 int main(int argc, char **argv)
 {
