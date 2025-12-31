@@ -19,5 +19,6 @@ DEMO_MAIN_DECL(open_3);
 DEMO_MAIN_DECL(open_4);
 DEMO_MAIN_DECL(open_5);
 DEMO_MAIN_DECL(open_6);
+DEMO_MAIN_DECL(F_GETLK);
 
 #endif
