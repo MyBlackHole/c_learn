@@ -27,3 +27,12 @@ target("openssl_learn_MD5_test")
     add_packages("openssl3")
 
 
+target("openssl_learn_mTLS_test")
+    set_kind("binary")
+    add_files("mTLS_test.c")
+    add_packages("openssl3")
+
+target("openssl_learn_mTLS_multi_cert")
+    set_kind("binary")
+    add_files("mTLS_multi_cert_test.c")
+    add_packages("openssl3")

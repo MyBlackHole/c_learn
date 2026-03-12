@@ -32,3 +32,9 @@ build/
 *.symvers
 *.order
 *.mod.c
+AGENTS.md
+CLAUDE.md
+.gitnexus
+.worktrees
+.claude
+docs
