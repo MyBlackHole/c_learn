@@ -1,3 +1,4 @@
+obj-m += kthread_open_file.o
 obj-m += kthread.o
 obj-m += kthread_stop.o
 obj-m += kthread_stop_err.o
