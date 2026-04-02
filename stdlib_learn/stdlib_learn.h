@@ -5,5 +5,7 @@
 DEMO_MAIN_DECL(exit);
 DEMO_MAIN_DECL(malloc_1);
 DEMO_MAIN_DECL(free_1);
+DEMO_MAIN_DECL(mkstemp);
+DEMO_MAIN_DECL(mkstemp1);
 
 #endif

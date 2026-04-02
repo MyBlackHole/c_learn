@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 void make_temp(char *);
-int main(void)
+int demo_mkstemp_main(void)
 {
 	char good_template[] = "/tmp/dirXXXXXX";
 	char *bad_template = "/tmp/dirXXXXXX";

@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 #include "mem.h"
+#include <string.h>
 
 char *cstrcpy(const char *src, char *dst)
 {
@@ -81,7 +82,8 @@ char *cstrdup(const char *s)
 
 char *cstrndup(const char *s, size_t len)
 {
-	char *ret = NULL, *end;
+	char *ret = NULL;
+	const char *end;
 
 	if (!s) {
 		return NULL;
