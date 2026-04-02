@@ -1,3 +1,4 @@
+obj-m += kernel_write_4_sig.o
 obj-m += kernel_write_4.o
  
 CURRENT_PATH:=$(shell pwd)
