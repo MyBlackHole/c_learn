@@ -5,5 +5,6 @@
 DEMO_MAIN_DECL(uring_submit);
 DEMO_MAIN_DECL(io_uring_prep_writev);
 DEMO_MAIN_DECL(demo);
+DEMO_MAIN_DECL(test_async_write);
 
 #endif

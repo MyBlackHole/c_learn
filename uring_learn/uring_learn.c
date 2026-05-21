@@ -8,6 +8,7 @@ static demo_t demos[] = {
 	DEMO_MAIN_ITEM(uring_submit),
 	DEMO_MAIN_ITEM(io_uring_prep_writev),
 	DEMO_MAIN_ITEM(demo),
+	DEMO_MAIN_ITEM(test_async_write),
 };
 int main(int argc, char **argv)
 {
